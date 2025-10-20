@@ -30,17 +30,17 @@ class Note:
     self.__wavelength = speed_of_sound / self.__frequency  # Meters
     
   
-  def __call__(self, t: float) -> float:
+  def __call__(self, x: float) -> float:
     """Call method
     
     Calling the note returns the value of the sinusoidal function that the note follows.
-    Essentially gives the height of the vibration of a moving wave at some constant point
-    at a given time. Note that all notes are normalized so that they have an amplitude of 1.
+    Essentially gives the height of the vibration at some constant given point. 
+    Note that all notes are normalized so that they have an amplitude of 1.
     
-    @param t  The time from the beginning of the vibration in milliseconds 
+    @param x  The place on the sinusoid that is evaluated
     @return   The height of the vibration
     """
-    return np.sin(2 * np.pi * self.frequency)
+    return np.sin(2 * np.pi * self.frequency * x)
   
   
   def __str__(self) -> str:
